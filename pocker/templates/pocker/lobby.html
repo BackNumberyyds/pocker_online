@@ -8,7 +8,33 @@
 </head>
 
 <body>
-    <h1>Let's play pocker!</h1>
+    <!-- <h1>Let's play pocker!</h1>
+
+    <script type="text/javascript">
+        let url = 'ws://' + window.location.host + '/ws/socket-server/'
+        const pocker_socket = new WebSocket(url)
+        pocker_socket.onmessage = function (e) {
+            let data = JSON.parse(e.data)
+            console.log('Data', data)
+        }
+    </script> -->
+    What chat room would you like to enter?<br>
+    <input id="room-name-input" type="text" size="100"><br>
+    <input id="room-name-submit" type="button" value="Enter">
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function (e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function (e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+    </script>
 </body>
 
 </html>

@@ -5,3 +5,7 @@ from django.shortcuts import render
 
 def tolobby(request):
     return render(request, 'pocker/lobby.html')
+
+
+def room(request, room_name):
+    return render(request, "pocker/room.html", {"room_name": room_name})
